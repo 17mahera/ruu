@@ -57,7 +57,7 @@ client.on('message', (message) => {// when message is sent
   }
   else if(message.content.startsWith(config.prefix + 'terracolor'))
   {
-      if(message.author.id !== 'config.ownerID')
+      if(message.author.id !== config.ownerID)
       {
         message.channel.send('Not Terra-senpai go away');
       }
