@@ -30,7 +30,7 @@ client.on('message', (message) => {// when message is sent
     message.channel.send('http://i.imgur.com/Emk9LEb.png!');
   }
 
-  /**else if(message.content.startsWith(config.prefix + 'prefix'))
+  else if(message.content.startsWith(config.prefix + 'prefix'))
   {
     // if it's not me it won't work
     if(message.author.id !== config.ownerID) return;
@@ -41,7 +41,7 @@ client.on('message', (message) => {// when message is sent
 
   // Now we have to save the file.
   fs.writeFile('./config.json', JSON.stringify(config), (err) => if(err) console.error(err));
-}**/
+}
   else if(message.content.startsWith(config.prefix + 'waifu'))
   {
     // if it's not me it won't work
