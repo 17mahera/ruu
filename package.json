@@ -1,0 +1,12 @@
+{
+  "name": "Ruu-AndroidOS",
+  "description": "Ruu is best Waifu",
+  "version": "0.0.0",
+  "main": "ruu.js",
+  "scripts": {
+    "start": "node ruu.js"
+  },
+  "dependencies": {
+    "discord.js": "11.1.0"
+  }
+}
