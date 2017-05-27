@@ -9,7 +9,6 @@ client.on('ready', () => {
   console.log('Bot Started')
 })
 
-/**
 client.on('message', (message) => {
   // Set the prefix
   let prefix = config.prefix;
@@ -52,7 +51,6 @@ client.on('message', (message) => {
 
   }
 })
-**/
 client.on('message', message => { // when message is sent
     if (message.content ===("<>")){ // when message is !bot
         message.channel.sendMessage("Shinies!"); // send running message into the channel where the message was sent
