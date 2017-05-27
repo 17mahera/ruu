@@ -53,10 +53,9 @@ client.on('message', (message) => {
   }
 })
 **/
-client.login(process.env.BOT_TOKEN)
-
-ruu.on('message', message => { // when message is sent
+client.on('message', message => { // when message is sent
     if (message.content ===("<>")){ // when message is !bot
         message.channel.sendMessage("Shinies!"); // send running message into the channel where the message was sent
     }
 })
+client.login(process.env.BOT_TOKEN)
