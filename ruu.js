@@ -18,10 +18,10 @@ client.on('message', (message) => {// when message is sent
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
   if (message.content ===("<>")){ // when message is <>
-      message.channel.sendMessage("Shinies!"); // send running message into the channel where the message was sent
+      message.channel.send("Shinies!"); // send running message into the channel where the message was sent
   }
 
-  if (message.content.startsWith(prefix + 'help'))
+  else if (message.content.startsWith(prefix + 'help'))
   {
     message.channel.send('I don\'t know what to help with yet!');
   }
@@ -53,6 +53,24 @@ client.on('message', (message) => {// when message is sent
     {
     message.channel.send('AA-senpai!');
     }
+
+  }
+  else if(message.content.startsWith(config.prefix + 'terracolor'+))
+  {
+      if(message.author.id !== 'config.ownerID')
+      {
+        message.channel.send('Not Terra-senpai go away');
+      }
+      else
+      {
+        let args = message.content.split(' ').slice(1);
+        // Set the color of a role
+        let terracolor = '#'+args[0];
+        let terraRole = message.guild.roles.find('name', 'Terra');
+        roles.find('terraRole').setColor(terracolor)
+        .then(r => console.log(`Set color of role ${r}`))
+        .catch(console.error);
+      }
 
   }
 })
