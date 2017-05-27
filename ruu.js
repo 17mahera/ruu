@@ -9,12 +9,16 @@ client.on('ready', () => {
   console.log('Bot Started')
 })
 
-client.on('message', (message) => {
+client.on('message', (message) => {// when message is sent
   // Set the prefix
   let prefix = config.prefix;
 
   // Exit and stop if it's not there
   if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  if (message.content ===("<>")){ // when message is <>
+      message.channel.sendMessage("Shinies!"); // send running message into the channel where the message was sent
+  }
 
   if (message.content.startsWith(prefix + 'help'))
   {
@@ -50,10 +54,5 @@ client.on('message', (message) => {
     }
 
   }
-})
-client.on('message', message => { // when message is sent
-    if (message.content ===("<>")){ // when message is !bot
-        message.channel.sendMessage("Shinies!"); // send running message into the channel where the message was sent
-    }
 })
 client.login(process.env.BOT_TOKEN)
