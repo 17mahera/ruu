@@ -57,7 +57,7 @@ client.on('message', (message) => {// when message is sent
   }
   else if(message.content.startsWith(config.prefix + 'terracolor'))
   {
-      if(message.author.id !== config.ownerID)
+      if(message.author.id !== '227596952852758528')
       {
         message.channel.send('Not Terra-senpai go away');
       }
@@ -67,6 +67,7 @@ client.on('message', (message) => {// when message is sent
         // Set the color of a role
         let terracolor = '#'+args[0];
         message.guild.roles.find('name', 'Terra').setColor(terracolor);
+        message.channel.send('Here you go~!');
       }
 
   }
