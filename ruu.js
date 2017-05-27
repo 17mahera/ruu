@@ -55,7 +55,7 @@ client.on('message', (message) => {// when message is sent
     }
 
   }
-  else if(message.content.startsWith(config.prefix + 'terracolor'+))
+  else if(message.content.startsWith(config.prefix + 'terracolor'))
   {
       if(message.author.id !== 'config.ownerID')
       {
@@ -66,9 +66,8 @@ client.on('message', (message) => {// when message is sent
         let args = message.content.split(' ').slice(1);
         // Set the color of a role
         let terracolor = '#'+args[0];
-        let terraRole = message.guild.roles.find('name', 'Terra');
-        roles.find('terraRole').setColor(terracolor)
-        .then(r => console.log(`Set color of role ${r}`))
+        roles.find('name', 'Terra').setColor(terracolor)
+        .then(r => message.channel.send('Set color!'))
         .catch(console.error);
       }
 
