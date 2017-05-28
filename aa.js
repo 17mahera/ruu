@@ -45,7 +45,7 @@ client.on('message', (message) => {// when message is sent
   fs.writeFile('./config.json', JSON.stringify(config));
 }
   else if(message.content.startsWith(config.prefix + 'waifu'))
-  {  
+  {
     {
     message.channel.send('AA-senpai!');
     }
@@ -68,6 +68,6 @@ client.on('message', (message) => {// when message is sent
         // Has to delete messages individually. Cannot use `deleteMessages()` on selfbots.
         msg_array.map(m => m.delete().catch(console.error));
         message.channel.send(messagecount+' messages deleted.');
-      });
+      })
 })
 client.login(process.env.BOT_TOKEN)
