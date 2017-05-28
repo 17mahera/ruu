@@ -8,9 +8,9 @@ const client = new Discord.Client()
 // The bot is ready
 client.on('ready', () => {
   console.log('Bot Started')
-})
+  client.guild(config.serverID).channel('235780001268629504').send("AutonomousAnswerer now online!");
 
-guild(config.serverID).channel('235780001268629504').send("AutonomousAnswerer now online!");
+})
 
 client.on('message', (message) => {// when message is sent
   // Set the prefix
