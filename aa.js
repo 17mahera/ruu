@@ -45,11 +45,7 @@ client.on('message', (message) => {// when message is sent
   fs.writeFile('./config.json', JSON.stringify(config));
 }
   else if(message.content.startsWith(config.prefix + 'waifu'))
-  {
-    {
-      message.channel.send('Not AA-senpai go away');
-    }
-    else
+  {  
     {
     message.channel.send('AA-senpai!');
     }
