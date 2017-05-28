@@ -1,10 +1,10 @@
 {
-  "name": "Ruu-AndroidOS",
-  "description": "Ruu is best Waifu",
+  "name": "AA self-bot",
+  "description": "AA is now more powerful than the gods",
   "version": "0.0.0",
   "main": "ruu.js",
   "scripts": {
-    "start": "node ruu.js"
+    "start": "node aa.js"
   },
   "dependencies": {
     "discord.js": "11.1.0"

@@ -8,6 +8,7 @@ const client = new Discord.Client()
 // The bot is ready
 client.on('ready', () => {
   console.log('Bot Started')
+  message.channel.send("AutonomousAnswerer now online!")
 })
 
 client.on('message', (message) => {// when message is sent
@@ -16,6 +17,7 @@ client.on('message', (message) => {// when message is sent
 
   // Exit and stop if it's not there
   if (!message.content.startsWith(prefix) || message.author.bot) return;
+  if(message.author !== client.user) return;  // Exit if not me
 
   if (message.content ===("<>")){ // when message is <>
       message.channel.send("Shinies!"); // send running message into the channel where the message was sent
@@ -44,8 +46,6 @@ client.on('message', (message) => {// when message is sent
 }
   else if(message.content.startsWith(config.prefix + 'waifu'))
   {
-    // if it's not me it won't work
-    if(message.author.id !== config.ownerID)
     {
       message.channel.send('Not AA-senpai go away');
     }
@@ -55,21 +55,23 @@ client.on('message', (message) => {// when message is sent
     }
 
   }
-  else if(message.content.startsWith(config.prefix + 'terracolor'))
-  {
-      if(message.author.id !== '227596952852758528')
-      {
-        message.channel.send('Not Terra-senpai go away');
-      }
-      else
-      {
-        let args = message.content.split(' ').slice(1);
-        // Set the color of a role
-        let terracolor = '#'+args[0];
-        message.guild.roles.find('name', 'Terra').setColor(terracolor);
-        message.channel.send('Here you go~!');
-      }
-
-  }
+  const params = message.content.split(' ').slice(1);
+  if (message.content.startsWith(prefix + 'prune')) {
+    // get number of messages to prune
+    let messagecount = parseInt(params[0]);
+    // get the channel logs
+    message.channel.fetchMessages({
+        limit: 100
+      })
+      .then(messages => {
+        let msg_array = messages.array();
+        // filter the message to only your own
+        msg_array = msg_array.filter(m => m.author.id === client.user.id);
+        // limit to the requested number + 1 for the command message
+        msg_array.length = messagecount + 1;
+        // Has to delete messages individually. Cannot use `deleteMessages()` on selfbots.
+        msg_array.map(m => m.delete().catch(console.error));
+        message.channel.send(messagecount+' messages deleted.');
+      });
 })
 client.login(process.env.BOT_TOKEN)

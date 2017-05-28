@@ -1,1 +1,1 @@
-worker: node ruu.js
+worker: node aa.js
