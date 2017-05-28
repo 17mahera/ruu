@@ -69,5 +69,6 @@ client.on('message', (message) => {// when message is sent
         msg_array.map(m => m.delete().catch(console.error));
         message.channel.send(messagecount+' messages deleted.');
       })
+    }
 })
 client.login(process.env.BOT_TOKEN)
