@@ -8,7 +8,7 @@ const client = new Discord.Client()
 // The bot is ready
 client.on('ready', () => {
   console.log('Bot Started');
-  client.guild.find(config.serverID).channel.find('235780001268629504').send("AutonomousAnswerer now online!");
+  guild.find(config.serverID).channel.find('235780001268629504').send("AutonomousAnswerer now online!");
 
 })
 
