@@ -8,7 +8,7 @@ const client = new Discord.Client()
 // The bot is ready
 client.on('ready', () => {
   console.log('Bot Started')
-  message.channel.send("AutonomousAnswerer now online!")
+  channel('235780001268629504').send("AutonomousAnswerer now online!")
 })
 
 client.on('message', (message) => {// when message is sent
