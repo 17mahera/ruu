@@ -27,7 +27,7 @@ client.on('message', (message) => {// when message is sent
   }
   else if (message.content.startsWith(prefix + 'idoruu'))
   {
-    message.channel.send('http://i.imgur.com/Emk9LEb.png!');
+    message.channel.send('http://i.imgur.com/Emk9LEb.png');
   }
 
   else if(message.content.startsWith(config.prefix + 'prefix'))
@@ -64,11 +64,10 @@ client.on('message', (message) => {// when message is sent
       else
       {
         let args = message.content.split(' ').slice(1);
-        if (args.startsWith('#'))
+        if (args.content.startsWith('#'))   // Set the color of a role
         {
           let terracolor = args[0];
         }
-        // Set the color of a role
         else
         {
           let terracolor = '#'+args[0];
