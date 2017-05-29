@@ -64,8 +64,15 @@ client.on('message', (message) => {// when message is sent
       else
       {
         let args = message.content.split(' ').slice(1);
+        if (args.startsWith('#'))
+        {
+          let terracolor = args[0];
+        }
         // Set the color of a role
-        let terracolor = '#'+args[0];
+        else
+        {
+          let terracolor = '#'+args[0];
+        }
         message.guild.roles.find('name', 'Terra').setColor(terracolor);
         message.channel.send('Here you go~!');
       }
