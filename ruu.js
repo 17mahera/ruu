@@ -4,7 +4,6 @@ const fs = require('fs')
 const config = require('./config.json');
 // Create an instance of a Discord client
 const client = new Discord.Client()
-String[][] commands={{'help','I don\'t know what to help with yet!'}};
 // The bot is ready
 client.on('ready', () => {
   console.log('Bot Started')
@@ -20,16 +19,13 @@ client.on('message', (message) => {// when message is sent
   if (message.content ===("<>")){ // when message is <>
       message.channel.send("Shinies!"); // send running message into the channel where the message was sent
   }
-  for(int i =  0; i<size(commands);i++)
+  var commands=[['help','I don\'t know what to help with yet!'],['idoruu','http://i.imgur.com/Emk9LEb.png']];
+  for( i =  0; i<commands.length;i++)
   {
     if (message.content.startsWith(prefix + commands[i][0]))
     {
       message.channel.send(commands[i][1]);
     }
-  }
-  else if (message.content.startsWith(prefix + 'idoruu'))
-  {
-    message.channel.send('http://i.imgur.com/Emk9LEb.png');
   }
 
   else if(message.content.startsWith(config.prefix + 'prefix'))
