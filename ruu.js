@@ -72,7 +72,7 @@ client.on('message', (message) => {// when message is sent
     }
     if (message.content.startsWith(prefix +'testing'))
     {
-      message.channel.send('the for loop is working but your list isn\'t X(');
+      message.channel.send('the for loop is working but your list isn\'t X('+i+commands[i][0]);
     }
   }
 })
