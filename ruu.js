@@ -63,17 +63,20 @@ client.on('message', (message) => {// when message is sent
       }
 
   }
-  var commands=[['help','I don\'t know what to help with yet!'],['idoruu','http://i.imgur.com/Emk9LEb.png']];
+  var commands=[
+  ['help','I don\'t know what to help with yet!'],
+  ['idoruu','http://i.imgur.com/Emk9LEb.png'],
+  ['ruumove','http://i.imgur.com/49dk6gD.png'],
+  ['heruusy','http://i.imgur.com/Hdcsu8e.jpg'],
+  ['ruuyear','http://i.imgur.com/c6cfRd1.png']
+];
   for( i =  0; i<commands.length;i++)
   {
     if (message.content.startsWith(prefix + commands[i][0]))
     {
       message.channel.send(commands[i][1]);
     }
-    if (message.content.startsWith(prefix +'testing'))
-    {
-      message.channel.send('the for loop is working but your list isn\'t X('+i+commands[i][0]);
-    }
+
   }
 })
 client.login(process.env.BOT_TOKEN)
