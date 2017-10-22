@@ -19,14 +19,7 @@ client.on('message', (message) => {// when message is sent
   if (message.content ===("<>")){ // when message is <>
       message.channel.send("Shinies!"); // send running message into the channel where the message was sent
   }
-  var commands=[['help','I don\'t know what to help with yet!'],['idoruu','http://i.imgur.com/Emk9LEb.png']];
-  for( i =  0; i<commands.length;i++)
-  {
-    if (message.content.startsWith(prefix + commands[i][0]))
-    {
-      message.channel.send(commands[i][1]);
-    }
-  }
+
 
   else if(message.content.startsWith(config.prefix + 'prefix'))
   {
