@@ -64,7 +64,7 @@ client.on('message', (message) => {// when message is sent
 
   }
   var commands=[
-  ['help','I don\'t know what to help with yet!'],
+  ['help','I don\'t know what to help with yet! For now, though, I think I can: *idoruu*, *ruumove*,*heruusy*, and *ruuyear*!'],
   ['idoruu','http://i.imgur.com/Emk9LEb.png'],
   ['ruumove','http://i.imgur.com/49dk6gD.png'],
   ['heruusy','http://i.imgur.com/Hdcsu8e.jpg'],
