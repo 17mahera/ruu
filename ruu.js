@@ -11,8 +11,10 @@ client.on('ready', () => {
 
 client.on('message', (message) => {// when message is sent
   // Set the prefix
-  let prefix = config.prefix;
+  if (process.env.SELF_BOT=='TRUE') prefix=="AA";
+  else let prefix = config.prefix;
 
+  if (process.env.SELF_BOT=='TRUE'&& message.author.id !== config.ownerID) return;
   // Exit and stop if it's not there
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
