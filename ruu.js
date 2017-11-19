@@ -11,13 +11,13 @@ client.on('ready', () => {
 
 client.on('message', (message) => {// when message is sent
   // Set the prefix
-  if (env.SELF_BOT=='TRUE') prefix=="AA";
+  if (SELF_BOT=='TRUE') prefix=="AA";
   else
   {
     let prefix = config.prefix;
   }
 
-  if (env.SELF_BOT=='TRUE')
+  if (SELF_BOT=='TRUE')
   {
     if(message.author.id !== config.ownerID) return;
   }
