@@ -11,7 +11,10 @@ client.on('ready', () => {
 
 client.on('message', (message) => {// when message is sent
   // Set the prefix
-  if (process.env.SELF_BOT=='TRUE') prefix=="AA";
+  if (process.env.SELF_BOT=='TRUE')
+  {
+    let prefix=="AA";
+  }
   else
   {
     let prefix = config.prefix;
