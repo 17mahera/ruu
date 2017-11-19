@@ -13,7 +13,7 @@ client.on('message', (message) => {// when message is sent
   // Set the prefix
   if (process.env.SELF_BOT=='TRUE')
   {
-    let prefix=="AA";
+    let prefix ="AA";
   }
   else
   {
