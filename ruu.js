@@ -11,13 +11,14 @@ client.on('ready', () => {
 
 client.on('message', (message) => {// when message is sent
   // Set the prefix
+  let prefix='test'
   if (process.env.SELF_BOT=='TRUE')
   {
-    let prefix ="AA";
+    prefix ="AA";
   }
   else
   {
-    let prefix = config.prefix;
+    prefix = config.prefix;
   }
 
   if (process.env.SELF_BOT=='TRUE')
