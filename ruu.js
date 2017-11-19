@@ -70,7 +70,8 @@ client.on('message', (message) => {// when message is sent
   ['idoruu','http://i.imgur.com/Emk9LEb.png'],
   ['ruumove','http://i.imgur.com/49dk6gD.png'],
   ['heruusy','http://i.imgur.com/Hdcsu8e.jpg'],
-  ['ruuyear','http://i.imgur.com/c6cfRd1.png']
+  ['ruuyear','http://i.imgur.com/c6cfRd1.png'],
+  ['clear','It\'s prune not clear!']
 ];
   for( i =  0; i<commands.length;i++)
   {
@@ -79,6 +80,32 @@ client.on('message', (message) => {// when message is sent
       message.channel.send(commands[i][1]);
     }
 
+  }
+  const params = message.content.split(' ').slice(1);
+  if (message.content.startsWith(prefix + 'prune')) {
+    // get number of messages to prune
+    let messagecount = parseInt(params[0]);
+    // get the channel logs
+    if(message.author.id !== config.ownerID)
+    {
+      message.channel.send('Not AA-senpai, authorization denied');
+    }
+    else
+    {
+    message.channel.fetchMessages({
+        limit: 100
+      })
+      .then(messages => {
+        let msg_array = messages.array();
+        // filter the message to only your own
+        msg_array = msg_array.filter(m => m.author.id === client.user.id);
+        // limit to the requested number + 1 for the command message
+        msg_array.length = messagecount + 1;
+        // Has to delete messages individually. Cannot use `deleteMessages()` on selfbots.
+        msg_array.map(m => m.delete().catch(console.error));
+        message.channel.send(messagecount+' messages deleted.');
+      })
+    }
   }
 })
 client.login(process.env.BOT_TOKEN)
