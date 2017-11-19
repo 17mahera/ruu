@@ -11,15 +11,22 @@ client.on('ready', () => {
 
 client.on('message', (message) => {// when message is sent
   // Set the prefix
-  //if (process.env.SELF_BOT=='TRUE') prefix=="AA";
-  //else
-  //{
+  if (env.SELF_BOT=='TRUE') prefix=="AA";
+  else
+  {
     let prefix = config.prefix;
-  //}
+  }
 
-  //if (process.env.SELF_BOT=='TRUE'&& message.author.id !== config.ownerID) return;
+  if (env.SELF_BOT=='TRUE')
+  {
+    if(message.author.id !== config.ownerID) return;
+  }
+  else
+  {
+    if(message.author.bot)return;
+  }
   // Exit and stop if it's not there
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
 
   if (message.content ===("<>")){ // when message is <>
       message.channel.send("Shinies!"); // send running message into the channel where the message was sent
@@ -74,7 +81,7 @@ client.on('message', (message) => {// when message is sent
   ['ruumove','http://i.imgur.com/49dk6gD.png'],
   ['heruusy','http://i.imgur.com/Hdcsu8e.jpg'],
   ['ruuyear','http://i.imgur.com/c6cfRd1.png'],
-  ['clear','It\'s prune not clear!']
+  ['clear','It\'s prunes, not clear!']
 ];
   for( i =  0; i<commands.length;i++)
   {
